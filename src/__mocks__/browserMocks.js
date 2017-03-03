@@ -1,4 +1,7 @@
+/* eslint-disable */
+
 //browserMocks.js
+
 var localStorageMock = (function () {
   var store = {};
 
