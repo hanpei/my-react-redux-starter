@@ -27,6 +27,15 @@ module.exports = {
       use: 'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]!postcss-loader!sass-loader', // ExtractTextPlugin必须写一起
     }),
   },
+  cssLinkExtract: {
+    test: /\.(css|scss)$/,
+    include: PATH.styles,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: 'css-loader!postcss-loader!sass-loader',
+      publicPath: '../',
+    }),
+  },
   cssLink: {
     test: /\.(css|scss)$/,
     include: PATH.styles,
@@ -36,5 +45,10 @@ module.exports = {
       'postcss-loader',
       'sass-loader',
     ],
+  },
+  fonts: {
+    test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'file-loader?name=fonts/[name].[ext]',
+    include: PATH.fonts,
   },
 };

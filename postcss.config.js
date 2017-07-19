@@ -1,6 +1,8 @@
-// 浏览器兼容 在package.json中的browserslist设置
 module.exports = {
-  plugins: [
-    require('autoprefixer')()
-  ]
-}
+  plugins: {
+    'postcss-import': {},
+    'postcss-cssnext': {
+      browsers: ['last 2 versions', 'ios >= 8', 'android >= 4'],
+    },
+  },
+};

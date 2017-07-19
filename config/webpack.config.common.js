@@ -15,6 +15,7 @@ const common = {
       constants: `${PATH.src}/constants`,
       reducers: `${PATH.src}/reducers`,
       utils: `${PATH.src}/utils`,
+      base: `${PATH.src}/components/base`,
     },
     extensions: ['.js'],
   },

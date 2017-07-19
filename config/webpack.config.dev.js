@@ -17,13 +17,17 @@ module.exports = merge(
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
-      new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+        // GLOBAL_ENV: JSON.stringify('dev'),
+      }),
     ],
     module: {
       rules: [
         loaders.babel,
         loaders.cssModules,
         loaders.cssLink,
+        loaders.fonts,
       ],
     },
   });

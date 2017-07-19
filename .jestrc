@@ -27,5 +27,7 @@
   },
   "setupFiles": [
     "<rootDir>/src/__mocks__/browserMocks.js"
-    ]
+  ],
+  "collectCoverage": false,
+  "collectCoverageFrom": ["**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**"]
 }
