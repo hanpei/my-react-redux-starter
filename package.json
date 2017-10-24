@@ -1,0 +1,43 @@
+{
+  "name": "gasq_stores_mgmt",
+  "version": "1.0.0",
+  "description": "gasq stores management",
+  "main": "index.js",
+  "scripts": {
+    "build:dist.dev": "webpack --env.NODE_ENV=development --config config/webpack.config.dist.dev.js",
+    "build:dist.qa": "webpack --env.NODE_ENV=production --config config/webpack.config.dist.qa.js",
+    "build:dist.prod": "webpack --env.NODE_ENV=production --config config/webpack.config.dist.prod.js",
+    "build:dev": "npm run build:dist.dev",
+    "build:qa": "npm run build:dist.qa",
+    "build:prod": "npm run build:dist.prod",
+    "dev": "npm start",
+    "start": "node devServer.js",
+    "test": "jest --config .jestrc",
+    "test:watch": "npm test -- --watch --silent",
+    "eslint": "eslint . --cache"
+  },
+  "author": "hanpei@126.com",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "postcss-loader": "^2.0.8",
+    "react-hot-loader": "^3.1.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.20.0",
+    "webpack-merge": "^4.1.0"
+  }
+}
