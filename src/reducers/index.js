@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-
-const testReducers = (state = {}, action) => state;
+import counterReducers from './counter/counterReducers';
 
 export default combineReducers({
-  test: testReducers,
+  counter: counterReducers,
 });
