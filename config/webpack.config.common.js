@@ -8,16 +8,6 @@ const common = {
   },
   resolve: {
     // add alias for application code directory
-    alias: {
-      components: `${PATH.src}/components`,
-      containers: `${PATH.src}/containers`,
-      actions: `${PATH.src}/actions`,
-      constants: `${PATH.src}/constants`,
-      reducers: `${PATH.src}/reducers`,
-      utils: `${PATH.src}/utils`,
-      base: `${PATH.src}/components/base`,
-      api: `${PATH.src}/api`,
-    },
     extensions: ['.js'],
   },
 };
