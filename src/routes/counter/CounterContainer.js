@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from '../../components/counter/Counter.scss';
-import { increment, decrement, resetNumber } from '../../actions';
-import Counter from '../../components/counter/Counter';
-import CounterInput from '../../components/counter/CounterInput';
+import styles from './Counter.scss';
+import { actions } from '../../redux/modules/counter';
+import Counter from './Counter';
+import CounterInput from './CounterInput';
 
 class CounterContainer extends Component {
   constructor(props) {
@@ -123,4 +123,5 @@ function mapDispatchToProps(dispatch) {
 }
 */
 
-export default connect(mapStateToProps, { increment, decrement, resetNumber })(CounterContainer);
+// const { increment, decrement, resetNumber } = actions;
+export default connect(mapStateToProps, { ...actions })(CounterContainer);
