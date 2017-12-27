@@ -5,6 +5,7 @@ import { routerMiddleware } from 'react-router-redux';
 import history from '../../utils/history';
 import rootReducer from '../modules/reducers';
 import customMiddlewares from '../middlewares';
+import rootSaga from '../sagas/rootSaga';
 
 function configureStore() {
   const initialState = {};
@@ -22,16 +23,25 @@ function configureStore() {
 
   const store = createStore(rootReducer, initialState, enhancers);
 
+  // run sagaMiddleware
+  let sagaTask = sagaMiddleware.run(rootSaga);
+
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (module.hot) {
     module.hot.accept('../modules/reducers', () => {
       const nextRootReducer = require('../modules/reducers').default; // eslint-disable-line
       store.replaceReducer(nextRootReducer);
     });
+
+    module.hot.accept('../sagas/rootSaga', () => {
+      const nextRootSaga = require('../sagas/rootSaga').default
+      sagaTask.cancel();
+      sagaTask.done.then(() => {
+        sagaTask = sagaMiddleware.run(nextRootSaga);
+      });
+    });
   }
 
-  store.runSaga = sagaMiddleware.run;
-  store.close = () => store.dispatch(END);
   return store;
 }
 
